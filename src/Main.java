@@ -43,13 +43,13 @@ public class Main {
 		g.addEdge(v3, v5, 14.0);
 		g.addEdge(v5, v4, 10.0);
 
-		/*HashMap<Vertex, Set<Edge>> test = g.getMap();
-		for (Vertex name : test.keySet()) {
-			String key = name.toString();
-			String value = test.get(name).toString();
-			System.out.println(key + " " + value);
-		}*/
-		
+//		HashMap<Vertex, Set<Edge>> test = g.getMap();
+//		for (Vertex name : test.keySet()) {
+//			String key = name.toString();
+//			String value = test.get(name).toString();
+//			System.out.println(key + " " + value);
+//		}
+
 		PrimsMST mst = new PrimsMST(g);
 		List<Edge> edges = mst.getMST();
 		for (Edge e : edges) {

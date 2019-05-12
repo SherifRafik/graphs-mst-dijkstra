@@ -66,8 +66,4 @@ public class PrimsMST {
 		return totalCost;
 	}
 
-	public void setTotalCost(int totalCost) {
-		this.totalCost = totalCost;
-	}
-
 }
