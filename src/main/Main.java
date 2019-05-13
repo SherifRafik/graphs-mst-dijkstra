@@ -76,8 +76,8 @@ public class Main {
 //		}
 //		System.out.println(mst.getTotalCost());
 
-		Dijkstra dijk = new Dijkstra(g);
-		HashMap<Vertex, Double> test = dijk.shortestPath(v0);
+		Dijkstra vanDijk = new Dijkstra(g);
+		HashMap<Vertex, Double> test = vanDijk.shortestPath(v0);
 		for (Vertex name : test.keySet()) {
 			String key = name.toString();
 			String value = test.get(name).toString();
