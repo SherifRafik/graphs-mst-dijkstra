@@ -3,12 +3,12 @@ package graphs;
 public class Edge implements Comparable<Edge> {
 
 	private double weight;
-	private Vertex from;
-	private Vertex to;
+	private Vertex source;
+	private Vertex destination;
 
-	public Edge(Vertex from, Vertex to, double weight) {
-		this.from = from;
-		this.to = to;
+	public Edge(Vertex source, Vertex destination, double weight) {
+		this.source = source;
+		this.destination = destination;
 		this.weight = weight;
 	}
 
@@ -20,25 +20,25 @@ public class Edge implements Comparable<Edge> {
 		this.weight = weight;
 	}
 
-	public Vertex getFrom() {
-		return from;
+	public Vertex getSource() {
+		return source;
 	}
 
-	public void setFrom(Vertex from) {
-		this.from = from;
+	public void setSource(Vertex source) {
+		this.source = source;
 	}
 
-	public Vertex getTo() {
-		return to;
+	public Vertex getDestination() {
+		return destination;
 	}
 
-	public void setTo(Vertex to) {
-		this.to = to;
+	public void setDestination(Vertex destination) {
+		this.destination = destination;
 	}
 
 	@Override
 	public String toString() {
-		return "Edge [weight=" + weight + ", from=" + from + ", to=" + to + "]";
+		return "Edge [weight=" + weight + ", from=" + source + ", to=" + destination + "]";
 	}
 
 	@Override
@@ -46,4 +46,7 @@ public class Edge implements Comparable<Edge> {
 		return (int) (this.weight - e.weight);
 	}
 
+	// positive integer, if the current object is greater than the specified object.
+	// negative integer, if the current object is less than the specified object.
+	// zero, if the current object is equal to the specified object.
 }

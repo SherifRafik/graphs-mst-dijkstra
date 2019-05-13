@@ -1,5 +1,6 @@
 package graphs;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,6 +9,7 @@ public class Graph {
 
 	private boolean directed = false;
 	private HashMap<Vertex, Set<Edge>> map = new HashMap<>();
+	ArrayList<Edge> edges = new ArrayList<>();
 
 	public Graph(boolean directed) {
 		this.directed = directed;
@@ -20,16 +22,19 @@ public class Graph {
 		map.put(vertex, new HashSet<>());
 	}
 
-	public void addEdge(Vertex from, Vertex to, double weight) {
-		if (!map.containsKey(from) || !map.containsKey(to))
+	public void addEdge(Vertex source, Vertex destination, double weight) {
+		if (!map.containsKey(source) || !map.containsKey(destination))
 			return;
 
-		Edge edge = new Edge(from, to, weight);
-		map.get(from).add(edge);
+		Edge edge = new Edge(source, destination, weight);
+		map.get(source).add(edge);
+		edges.add(edge);
 
 		if (!directed) {
-			Edge edge2 = new Edge(to, from, weight);
-			map.get(to).add(edge2);
+			Edge edge2 = new Edge(destination, source, weight);
+			map.get(destination).add(edge2);
+			edges.add(edge2);
+
 		}
 	}
 
@@ -49,9 +54,25 @@ public class Graph {
 		this.map = map;
 	}
 
+	public Set<Vertex> getVertices() {
+		return new HashSet<>(map.keySet());
+	}
+
 	@Override
 	public String toString() {
 		return "Graph [map=" + map + "]";
+	}
+
+	public ArrayList<Edge> getEdges() {
+		return edges;
+	}
+	
+	public Set<Edge> getEdges(Vertex source) {
+		return map.get(source);
+	}
+
+	public void setEdges(ArrayList<Edge> edges) {
+		this.edges = edges;
 	}
 
 }

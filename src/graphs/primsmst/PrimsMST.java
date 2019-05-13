@@ -27,6 +27,7 @@ public class PrimsMST {
 		if (start == null)
 			return edges;
 
+		// Set of all verticies that are in the mst
 		Set<Vertex> mst = new HashSet<>();
 		mst.add(start);
 
@@ -35,7 +36,7 @@ public class PrimsMST {
 
 		while (!queue.isEmpty()) {
 			Edge minEdge = queue.remove();
-			Vertex minEdgeVertex = minEdge.getTo();
+			Vertex minEdgeVertex = minEdge.getDestination();
 			if (mst.contains(minEdgeVertex))
 				continue;
 			totalCost += minEdge.getWeight();
