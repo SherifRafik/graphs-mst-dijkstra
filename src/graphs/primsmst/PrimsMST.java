@@ -20,10 +20,9 @@ public class PrimsMST {
 		totalCost = 0;
 	}
 
-	public ArrayList<Edge> getMST() {
+	public ArrayList<Edge> getMST(Vertex start) {
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 
-		Vertex start = getRandomVertex();
 		if (start == null)
 			return edges;
 

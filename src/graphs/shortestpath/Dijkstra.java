@@ -45,7 +45,6 @@ public class Dijkstra {
                 if (distance.get(edge.getDestination()) > newPath) {
                     distance.put(edge.getDestination(), newPath);
                 }
-
 			}	
 		}
 		return distance;
