@@ -1,11 +1,10 @@
 package main;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import graphs.Edge;
 import graphs.Graph;
 import graphs.Vertex;
-import graphs.primsmst.PrimsMST;
+import graphs.shortestpath.Dijkstra;
 
 public class Main {
 
@@ -77,13 +76,13 @@ public class Main {
 //		}
 //		System.out.println(mst.getTotalCost());
 //
-//		Dijkstra vanDijk = new Dijkstra(g);
-//		HashMap<Vertex, Double> test = vanDijk.shortestPath(v0);
-//		for (Vertex name : test.keySet()) {
+		Dijkstra vanDijk = new Dijkstra(g);
+		HashMap<Vertex, Double> test = vanDijk.shortestPath(v0);
+		for (Vertex name : test.keySet()) {
 //			String key = name.toString();
 //			String value = test.get(name).toString();
-//			System.out.println(key + " " + value);
-//		}
+			System.out.println(name.shortestPathToString(test.get(name)));
+		}
 
 	}
 

@@ -20,13 +20,14 @@ public class Dijkstra {
 		ArrayList<Vertex> verticies = new ArrayList<>();
 
 		for (Vertex vertex : graph.getVertices()) {
-			if (source.equals(vertex)) 
+			vertex.setDijkstraParent(null);
+			if (source.equals(vertex))
 				distance.put(source, 0d);
 			else
 				distance.put(vertex, Double.POSITIVE_INFINITY);
 			verticies.add(vertex);
 		}
-		
+
 		while(!verticies.isEmpty()) {
 			
 			Vertex minimum = null;
@@ -39,13 +40,14 @@ public class Dijkstra {
 				}
 			}
 			verticies.remove(minimum);
-			
+
 			for(Edge edge : graph.getEdges(minimum)) {
                 double newPath = distance.get(minimum) + edge.getWeight();
                 if (distance.get(edge.getDestination()) > newPath) {
-                    distance.put(edge.getDestination(), newPath);
-                }
-			}	
+		        	edge.getDestination().setDijkstraParent(edge.getSource());
+                	distance.put(edge.getDestination(), newPath);
+		        }
+			}
 		}
 		return distance;
 	}
