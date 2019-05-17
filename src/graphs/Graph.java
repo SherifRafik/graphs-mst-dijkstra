@@ -7,15 +7,12 @@ import java.util.Set;
 
 public class Graph {
 
-	private boolean directed = false;
+	private boolean directed;
 	private HashMap<Vertex, Set<Edge>> map = new HashMap<>();
-	ArrayList<Edge> edges = new ArrayList<>();
+	private ArrayList<Edge> edges = new ArrayList<>();
 
 	public Graph(boolean directed) {
 		this.directed = directed;
-	}
-
-	public Graph() {
 	}
 
 	public void addVertex(Vertex vertex) {

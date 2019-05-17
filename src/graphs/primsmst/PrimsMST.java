@@ -12,7 +12,7 @@ import graphs.Vertex;
 
 public class PrimsMST {
 
-	Graph graph;
+	private Graph graph;
 	private int totalCost;
 
 	public PrimsMST(Graph g) {
@@ -26,12 +26,11 @@ public class PrimsMST {
 		if (start == null)
 			return edges;
 
-		// Set of all verticies that are in the mst
+		// Set of all vertices that are in the mst
 		Set<Vertex> mst = new HashSet<>();
 		mst.add(start);
 
-		PriorityQueue<Edge> queue = new PriorityQueue<>();
-		queue.addAll(graph.getMap().get(start));
+		PriorityQueue<Edge> queue = new PriorityQueue<>(graph.getMap().get(start));
 
 		while (!queue.isEmpty()) {
 			Edge minEdge = queue.remove();
@@ -48,10 +47,9 @@ public class PrimsMST {
 	}
 
 	private Vertex getRandomVertex() {
-		ArrayList<Vertex> verticies = new ArrayList<>(graph.getMap().keySet());
-		int randomIndex = new Random().nextInt(verticies.size());
-		Vertex randomVertex = verticies.get(randomIndex);
-		return randomVertex;
+		ArrayList<Vertex> vertices = new ArrayList<>(graph.getMap().keySet());
+		int randomIndex = new Random().nextInt(vertices.size());
+		return vertices.get(randomIndex);
 	}
 
 	public Graph getGraph() {

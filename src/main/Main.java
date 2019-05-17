@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		//Undirected Graph
-		Graph g = new Graph();
+		Graph g = new Graph(true);
 		Vertex v0 = new Vertex("a");
 		Vertex v1 = new Vertex("b");
 		Vertex v2 = new Vertex("c");
