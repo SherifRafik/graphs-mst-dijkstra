@@ -46,6 +46,14 @@ public class Main {
 		g.addEdge(v3, v4, 9.0);
 		g.addEdge(v3, v5, 14.0);
 		g.addEdge(v5, v4, 10.0);
+		
+		PrimsMST mst = new PrimsMST(g);
+		ArrayList<Edge> edges = mst.getMST(v0);
+		for (Edge edge : edges) {
+			System.out.println(edge);
+		}
+		System.out.println(mst.getTotalCost());
+
 
 //		 Directed Graph
 		 Graph g2 = new Graph(true);
@@ -62,13 +70,6 @@ public class Main {
 		 g2.addEdge(b, c, 1.0);
 		 g2.addEdge(d, c, 2.0);
 		 g2.addEdge(b, d, 5.0);
-
-		PrimsMST mst = new PrimsMST(g);
-		ArrayList<Edge> edges = mst.getMST(v0);
-		for (Edge edge : edges) {
-			System.out.println(edge);
-		}
-		System.out.println(mst.getTotalCost());
 
 		Dijkstra dijkstra = new Dijkstra(g2);
 		HashMap<Vertex, Double> map = dijkstra.shortestPath(a);
