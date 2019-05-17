@@ -48,20 +48,20 @@ public class Main {
 		g.addEdge(v5, v4, 10.0);
 
 //		 Directed Graph
-//		 Graph g = new Graph(true);
-//		 Vertex a = new Vertex("A");
-//		 Vertex b = new Vertex("B");
-//		 Vertex c = new Vertex("C");
-//		 Vertex d = new Vertex("D");
-//		 g.addVertex(a);
-//		 g.addVertex(b);
-//		 g.addVertex(c);
-//		 g.addVertex(d);
-//		 g.addEdge(a, b, 4.0);
-//		 g.addEdge(a, c, 6.0);
-//		 g.addEdge(b, c, 1.0);
-//		 g.addEdge(d, c, 2.0);
-//		 g.addEdge(b, d, 5.0);
+		 Graph g2 = new Graph(true);
+		 Vertex a = new Vertex("A");
+		 Vertex b = new Vertex("B");
+		 Vertex c = new Vertex("C");
+		 Vertex d = new Vertex("D");
+		 g2.addVertex(a);
+		 g2.addVertex(b);
+		 g2.addVertex(c);
+		 g2.addVertex(d);
+		 g2.addEdge(a, b, 4.0);
+		 g2.addEdge(a, c, 6.0);
+		 g2.addEdge(b, c, 1.0);
+		 g2.addEdge(d, c, 2.0);
+		 g2.addEdge(b, d, 5.0);
 
 		PrimsMST mst = new PrimsMST(g);
 		ArrayList<Edge> edges = mst.getMST(v0);
@@ -70,10 +70,10 @@ public class Main {
 		}
 		System.out.println(mst.getTotalCost());
 
-		Dijkstra dijkstra = new Dijkstra(g);
-		HashMap<Vertex, Double> test = dijkstra.shortestPath(v0);
-		for (Vertex name : test.keySet()) {
-			System.out.println(name.shortestPathToString(test.get(name)));
+		Dijkstra dijkstra = new Dijkstra(g2);
+		HashMap<Vertex, Double> map = dijkstra.shortestPath(a);
+		for (Vertex name : map.keySet()) {
+			System.out.println(name.shortestPathToString(map.get(name)));
 		}
 
 	}
