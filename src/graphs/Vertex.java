@@ -43,4 +43,9 @@ public class Vertex {
 		return "Shortest path to " + value + " is:\t" + shortestPath.toString() + "\twith length " + length;
 	}
 
+	@Override
+	public String toString() {
+		return " " + value;
+	}
+
 }

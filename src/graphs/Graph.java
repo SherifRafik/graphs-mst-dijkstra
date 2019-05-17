@@ -65,7 +65,7 @@ public class Graph {
 	public ArrayList<Edge> getEdges() {
 		return edges;
 	}
-	
+
 	public Set<Edge> getEdges(Vertex source) {
 		return map.get(source);
 	}

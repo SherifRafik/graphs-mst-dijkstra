@@ -1,16 +1,19 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import graphs.Edge;
 import graphs.Graph;
 import graphs.Vertex;
+import graphs.primsmst.PrimsMST;
 import graphs.shortestpath.Dijkstra;
 
 public class Main {
 
 	public static void main(String[] args) {
-		//Undirected Graph
-		Graph g = new Graph(true);
+		// Undirected Graph
+		Graph g = new Graph(false);
 		Vertex v0 = new Vertex("a");
 		Vertex v1 = new Vertex("b");
 		Vertex v2 = new Vertex("c");
@@ -43,44 +46,33 @@ public class Main {
 		g.addEdge(v3, v4, 9.0);
 		g.addEdge(v3, v5, 14.0);
 		g.addEdge(v5, v4, 10.0);
-		
-		//Directed Graph
-//		Graph g = new Graph(true);
-//		Vertex a = new Vertex("A");
-//		Vertex b = new Vertex("B");
-//		Vertex c = new Vertex("C");
-//		Vertex d = new Vertex("D");
-//		g.addVertex(a);
-//		g.addVertex(b);
-//		g.addVertex(c);
-//		g.addVertex(d);
-//		g.addEdge(a, b, 4.0);
-//		g.addEdge(a, c, 6.0);
-//		g.addEdge(b, c, 1.0);
-//		g.addEdge(d, c, 2.0);
-//		g.addEdge(b, d, 5.0);
 
+//		 Directed Graph
+//		 Graph g = new Graph(true);
+//		 Vertex a = new Vertex("A");
+//		 Vertex b = new Vertex("B");
+//		 Vertex c = new Vertex("C");
+//		 Vertex d = new Vertex("D");
+//		 g.addVertex(a);
+//		 g.addVertex(b);
+//		 g.addVertex(c);
+//		 g.addVertex(d);
+//		 g.addEdge(a, b, 4.0);
+//		 g.addEdge(a, c, 6.0);
+//		 g.addEdge(b, c, 1.0);
+//		 g.addEdge(d, c, 2.0);
+//		 g.addEdge(b, d, 5.0);
 
+		PrimsMST mst = new PrimsMST(g);
+		ArrayList<Edge> edges = mst.getMST(v0);
+		for (Edge edge : edges) {
+			System.out.println(edge);
+		}
+		System.out.println(mst.getTotalCost());
 
-//		HashMap<Vertex, Set<Edge>> test2 = g.getMap();
-//		for (Vertex name : test2.keySet()) {
-//		String key = name.toString();
-//	    String value = test2.get(name).toString();
-//		System.out.println(key + " " + value);
-//		 }
-
-//		PrimsMST mst = new PrimsMST(g);
-//		ArrayList<Edge> edges = mst.getMST(v0);
-//		for (Edge e : edges) {
-//			System.out.println(e);
-//		}
-//		System.out.println(mst.getTotalCost());
-//
-		Dijkstra vanDijk = new Dijkstra(g);
-		HashMap<Vertex, Double> test = vanDijk.shortestPath(v0);
+		Dijkstra dijkstra = new Dijkstra(g);
+		HashMap<Vertex, Double> test = dijkstra.shortestPath(v0);
 		for (Vertex name : test.keySet()) {
-//			String key = name.toString();
-//			String value = test.get(name).toString();
 			System.out.println(name.shortestPathToString(test.get(name)));
 		}
 

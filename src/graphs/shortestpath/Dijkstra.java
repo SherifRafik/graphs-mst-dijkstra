@@ -28,25 +28,25 @@ public class Dijkstra {
 			vertices.add(vertex);
 		}
 
-		while(!vertices.isEmpty()) {
-			
+		while (!vertices.isEmpty()) {
+
 			Vertex minimum = null;
 			double minimumDistance = Double.POSITIVE_INFINITY;
-			
+
 			for (Vertex vertex : vertices) {
-				if(minimumDistance > distance.get(vertex)) {
+				if (minimumDistance > distance.get(vertex)) {
 					minimumDistance = distance.get(vertex);
 					minimum = vertex;
 				}
 			}
 			vertices.remove(minimum);
 
-			for(Edge edge : graph.getEdges(minimum)) {
-                double newPath = distance.get(minimum) + edge.getWeight();
-                if (distance.get(edge.getDestination()) > newPath) {
-		        	edge.getDestination().setDijkstraParent(edge.getSource());
-                	distance.put(edge.getDestination(), newPath);
-		        }
+			for (Edge edge : graph.getEdges(minimum)) {
+				double newPath = distance.get(minimum) + edge.getWeight();
+				if (distance.get(edge.getDestination()) > newPath) {
+					edge.getDestination().setDijkstraParent(edge.getSource());
+					distance.put(edge.getDestination(), newPath);
+				}
 			}
 		}
 		return distance;

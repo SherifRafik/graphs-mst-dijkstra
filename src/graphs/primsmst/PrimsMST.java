@@ -3,7 +3,6 @@ package graphs.primsmst;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.PriorityQueue;
-import java.util.Random;
 import java.util.Set;
 
 import graphs.Edge;
@@ -30,7 +29,8 @@ public class PrimsMST {
 		Set<Vertex> mst = new HashSet<>();
 		mst.add(start);
 
-		PriorityQueue<Edge> queue = new PriorityQueue<>(graph.getMap().get(start));
+		PriorityQueue<Edge> queue = new PriorityQueue<>();
+		queue.addAll(graph.getMap().get(start));
 
 		while (!queue.isEmpty()) {
 			Edge minEdge = queue.remove();
@@ -46,12 +46,11 @@ public class PrimsMST {
 		return edges;
 	}
 
-	private Vertex getRandomVertex() {
-		ArrayList<Vertex> vertices = new ArrayList<>(graph.getMap().keySet());
-		int randomIndex = new Random().nextInt(vertices.size());
-		return vertices.get(randomIndex);
-	}
-
+	/*
+	 * private Vertex getRandomVertex() { ArrayList<Vertex> vertices = new
+	 * ArrayList<>(graph.getMap().keySet()); int randomIndex = new
+	 * Random().nextInt(vertices.size()); return vertices.get(randomIndex); }
+	 */
 	public Graph getGraph() {
 		return graph;
 	}
