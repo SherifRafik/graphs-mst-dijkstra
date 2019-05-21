@@ -23,7 +23,6 @@ public class Graph {
 		if (!map.containsKey(source) || !map.containsKey(destination))
 			return;
 
-		// TODO: check if edge already exists
 
 		Edge edge = new Edge(source, destination, weight);
 		map.get(source).add(edge);
